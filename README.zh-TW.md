@@ -24,7 +24,7 @@
 
 ## 安裝
 
-從 [Releases](https://github.com/kaa5945/YTMusic/releases) 下載最新的 DMG，打開後將 YTMusic 拖到 Applications。
+從 [Releases](https://github.com/adamtan945/YTMusic/releases) 下載最新的 DMG，打開後將 YTMusic 拖到 Applications。
 
 ## 解除安裝
 

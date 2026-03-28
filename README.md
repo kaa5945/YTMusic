@@ -24,7 +24,7 @@ A lightweight native macOS app that wraps YouTube Music with background playback
 
 ## Install
 
-Download the latest DMG from [Releases](https://github.com/kaa5945/YTMusic/releases), open it, and drag YTMusic to Applications.
+Download the latest DMG from [Releases](https://github.com/adamtan945/YTMusic/releases), open it, and drag YTMusic to Applications.
 
 ## Uninstall
 
