@@ -1,0 +1,15 @@
+# Changelog
+
+## [1.0.0] - 2026-03-28
+
+### Added
+- WKWebView 載入 YouTube Music 網頁版
+- Google 帳號登入（Safari UA + session 持久化）
+- 背景播放（關閉視窗不退出 App）
+- Menu Bar 常駐圖示（含封面圖、歌名、歌手、播放控制）
+- 歌曲切換 macOS 系統通知
+- 媒體鍵控制（透過 WebView 內建 MediaSession）
+- Dock 圖示重開視窗
+- 主選單支援 ⌘C/V/X/A 快捷鍵
+- `scripts/bundle.sh` 打包成 .app bundle
+- `scripts/generate_icon.py` 生成 App Icon
