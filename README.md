@@ -21,9 +21,29 @@ A lightweight native macOS app that wraps YouTube Music with background playback
 ## Requirements
 
 - macOS 13 (Ventura) or later
-- Swift 5.9+ (Command Line Tools)
 
-## Build & Install
+## Install
+
+Download the latest DMG from [Releases](https://github.com/kaa5945/YTMusic/releases), open it, and drag YTMusic to Applications.
+
+## Uninstall
+
+```bash
+bash scripts/uninstall.sh
+```
+
+Or manually remove:
+
+```bash
+rm -rf /Applications/YTMusic.app
+rm -rf ~/Library/WebKit/com.kaa5945.ytmusic
+rm -rf ~/Library/Caches/com.kaa5945.ytmusic
+rm -rf ~/Library/Preferences/com.kaa5945.ytmusic.plist
+```
+
+## Build from Source
+
+Requires Swift 5.9+ (Command Line Tools).
 
 ```bash
 # Build and create .app bundle

@@ -21,9 +21,29 @@
 ## 系統需求
 
 - macOS 13 (Ventura) 或更新版本
-- Swift 5.9+（Command Line Tools）
 
-## 建置與安裝
+## 安裝
+
+從 [Releases](https://github.com/kaa5945/YTMusic/releases) 下載最新的 DMG，打開後將 YTMusic 拖到 Applications。
+
+## 解除安裝
+
+```bash
+bash scripts/uninstall.sh
+```
+
+或手動移除：
+
+```bash
+rm -rf /Applications/YTMusic.app
+rm -rf ~/Library/WebKit/com.kaa5945.ytmusic
+rm -rf ~/Library/Caches/com.kaa5945.ytmusic
+rm -rf ~/Library/Preferences/com.kaa5945.ytmusic.plist
+```
+
+## 從原始碼建置
+
+需要 Swift 5.9+（Command Line Tools）。
 
 ```bash
 # 建置並打包成 .app bundle

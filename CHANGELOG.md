@@ -13,3 +13,5 @@
 - 主選單支援 ⌘C/V/X/A 快捷鍵
 - `scripts/bundle.sh` 打包成 .app bundle
 - `scripts/generate_icon.py` 生成 App Icon
+- `scripts/create_dmg.sh` 建立 DMG 安裝映像
+- `scripts/uninstall.sh` 完整移除 App 及資料
