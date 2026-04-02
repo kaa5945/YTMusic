@@ -4,7 +4,7 @@ set -euo pipefail
 
 PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 APP_NAME="YTMusic"
-VERSION="1.0.0"
+VERSION="1.1.0"
 BUNDLE_DIR="$PROJECT_DIR/build/${APP_NAME}.app"
 DMG_DIR="$PROJECT_DIR/build/dmg"
 DMG_PATH="$PROJECT_DIR/build/${APP_NAME}-${VERSION}.dmg"

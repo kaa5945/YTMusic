@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Version](https://img.shields.io/badge/version-1.1.0-blue)
 ![Swift](https://img.shields.io/badge/Swift-5.9-orange)
 ![Platform](https://img.shields.io/badge/platform-macOS%2013%2B-lightgrey)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -13,7 +13,7 @@
 
 - **背景播放** — 關閉視窗不會中斷音樂
 - **Google 登入** — 在 App 內登入，session 跨次啟動保持
-- **Menu Bar 控制** — 封面圖、歌曲資訊、播放/暫停/上下首
+- **Menu Bar 控制** — 封面圖、歌曲資訊、進度、音量、重複/隨機、待播清單
 - **系統通知** — 切歌時顯示 macOS 通知
 - **媒體鍵** — 鍵盤媒體鍵透過 WebView MediaSession 控制
 - **Dock 整合** — 點擊 Dock 圖示重新開啟視窗
@@ -69,6 +69,8 @@ Sources/
 │   └── MediaKeyService.swift   # 媒體鍵佔位
 └── Helpers/
     └── JavaScriptBridge.swift  # JS ↔ Swift 通訊橋接
+SmokeTests/
+└── main.swift                  # WKWebView bridge smoke test
 ```
 
 ## 授權

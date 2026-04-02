@@ -1,11 +1,15 @@
 import Cocoa
 import SwiftUI
 
-class AppDelegate: NSObject, NSApplicationDelegate {
+public final class AppDelegate: NSObject, NSApplicationDelegate {
     private var window: NSWindow?
     private var menuBarService: MenuBarService?
 
-    func applicationDidFinishLaunching(_ notification: Notification) {
+    public override init() {
+        super.init()
+    }
+
+    public func applicationDidFinishLaunching(_ notification: Notification) {
         // 建立主視窗
         let contentView = NSHostingView(rootView: ContentView())
         let window = NSWindow(
@@ -15,7 +19,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             defer: false
         )
         window.contentView = contentView
-        window.title = "YTMusic"
+        window.title = ""
+        window.titlebarAppearsTransparent = true
+        window.titleVisibility = .hidden
+        window.styleMask.insert(.fullSizeContentView)
+        window.titlebarSeparatorStyle = .none
+        window.isMovableByWindowBackground = true
+        window.backgroundColor = NSColor(red: 0.07, green: 0.07, blue: 0.07, alpha: 1)
         window.minSize = NSSize(width: 800, height: 600)
         window.isReleasedWhenClosed = false
         window.center()
@@ -36,19 +46,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     /// 關閉最後一個視窗時不結束 App，讓音樂在背景繼續播放
-    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+    public func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return false
     }
 
     /// 點擊 Dock 圖示時重新顯示視窗
-    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+    public func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
         if !flag {
             showWindow()
         }
         return true
     }
 
-    func showWindow() {
+    public func showWindow() {
         if let window = self.window, window.isVisible || !window.isMiniaturized {
             window.makeKeyAndOrderFront(nil)
         } else if let window = self.window {
@@ -63,7 +73,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 defer: false
             )
             newWindow.contentView = contentView
-            newWindow.title = "YTMusic"
+            newWindow.title = ""
+            newWindow.titlebarAppearsTransparent = true
+            newWindow.titleVisibility = .hidden
+            newWindow.styleMask.insert(.fullSizeContentView)
+            newWindow.titlebarSeparatorStyle = .none
+            newWindow.isMovableByWindowBackground = true
+            newWindow.backgroundColor = NSColor(red: 0.07, green: 0.07, blue: 0.07, alpha: 1)
             newWindow.minSize = NSSize(width: 800, height: 600)
             newWindow.isReleasedWhenClosed = false
             newWindow.center()

@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Version](https://img.shields.io/badge/version-1.1.0-blue)
 ![Swift](https://img.shields.io/badge/Swift-5.9-orange)
 ![Platform](https://img.shields.io/badge/platform-macOS%2013%2B-lightgrey)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -13,7 +13,7 @@ A lightweight native macOS app that wraps YouTube Music with background playback
 
 - **Background Playback** — closing the window doesn't stop the music
 - **Google Sign-in** — login within the app, session persists across launches
-- **Menu Bar Controls** — album art, track info, play/pause/next/previous
+- **Menu Bar Controls** — album art, track info, progress, volume, repeat/shuffle, up next queue
 - **System Notifications** — song change notifications via macOS
 - **Media Keys** — keyboard media keys work via WebView MediaSession
 - **Dock Integration** — click Dock icon to restore window
@@ -69,6 +69,8 @@ Sources/
 │   └── MediaKeyService.swift   # Media key placeholder
 └── Helpers/
     └── JavaScriptBridge.swift  # JS ↔ Swift communication
+SmokeTests/
+└── main.swift                  # WKWebView bridge smoke tests
 ```
 
 ## License

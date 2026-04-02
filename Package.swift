@@ -7,12 +7,34 @@ let package = Package(
         .macOS(.v13)
     ],
     targets: [
-        .executableTarget(
-            name: "YTMusic",
+        .target(
+            name: "YTMusicCore",
             path: "Sources",
+            exclude: [
+                "App/main.swift",
+            ],
             linkerSettings: [
                 .linkedFramework("WebKit"),
                 .linkedFramework("UserNotifications"),
+            ]
+        ),
+        .executableTarget(
+            name: "YTMusic",
+            dependencies: ["YTMusicCore"],
+            path: "Sources/App",
+            exclude: ["AppDelegate.swift"],
+            sources: ["main.swift"],
+            linkerSettings: [
+                .linkedFramework("WebKit"),
+                .linkedFramework("UserNotifications"),
+            ]
+        ),
+        .executableTarget(
+            name: "SmokeTests",
+            dependencies: ["YTMusicCore"],
+            path: "SmokeTests",
+            linkerSettings: [
+                .linkedFramework("WebKit"),
             ]
         )
     ]

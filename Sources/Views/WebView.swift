@@ -52,6 +52,12 @@ class WebViewManager: NSObject, ObservableObject {
         let bridge = JavaScriptBridge.shared
         userContentController.add(bridge, name: "nowPlaying")
         userContentController.add(bridge, name: "playbackState")
+        userContentController.add(bridge, name: "volumeChanged")
+        userContentController.add(bridge, name: "repeatState")
+        userContentController.add(bridge, name: "shuffleState")
+        userContentController.add(bridge, name: "queueUpdate")
+        userContentController.add(bridge, name: "timeUpdate")
+        userContentController.add(bridge, name: "debugLog")
 
         // 在 Google 登入頁面隱藏 WebView 特徵（messageHandlers）
         let hideWebViewScript = WKUserScript(
@@ -75,6 +81,27 @@ class WebViewManager: NSObject, ObservableObject {
             forMainFrameOnly: false
         )
         userContentController.addUserScript(hideWebViewScript)
+
+        // 隱藏捲軸（保留捲動功能）
+        let hideScrollbarScript = WKUserScript(
+            source: """
+            (function() {
+                var s = document.createElement('style');
+                s.textContent = `
+                    ::-webkit-scrollbar { display: none !important; width: 0 !important; height: 0 !important; }
+                    * { scrollbar-width: none !important; -ms-overflow-style: none !important; }
+                `;
+                document.head.appendChild(s);
+                // YouTube Music 動態載入內容，用 MutationObserver 持續注入
+                new MutationObserver(function() {
+                    if (!document.head.contains(s)) { document.head.appendChild(s); }
+                }).observe(document.documentElement, { childList: true, subtree: true });
+            })();
+            """,
+            injectionTime: .atDocumentEnd,
+            forMainFrameOnly: false
+        )
+        userContentController.addUserScript(hideScrollbarScript)
 
         // 注入歌曲監聯 JS
         let monitorScript = WKUserScript(
